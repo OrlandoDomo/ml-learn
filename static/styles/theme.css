@@ -1,0 +1,24 @@
+body {
+    background-color: rgb(41, 37, 54);
+}
+
+h1 {
+    color: white;
+}
+
+p { 
+    color: white;
+
+}
+
+#DRXplot {
+    border-radius: 25px;
+    background-color:white;
+    /*padding-top: 20px;
+    padding-bottom: 20px;*/
+}
+
+#NewPlot {
+    margin-left: 100px;
+    margin-top: 50px;
+}

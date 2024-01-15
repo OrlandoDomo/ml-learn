@@ -1,0 +1,11 @@
+---
+title: "Apuntes PUCP Semestre 2022-1"
+---
+
+En esta pagina se encontraran los apuntes a los cursos llevados en el semestre 2022-1 de la Maestria en Ingenieria y Ciencia de los Materiales.
+
+- Fundamentos de Manufactura
+- Termodinamica y transformaciones de fase
+- Materia Condensada
+- Estrucutra Quimica
+- Comportamiento Mecanico de los Materiales

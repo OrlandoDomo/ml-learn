@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="myDiv">
+        <script>
+            var trace1 = {
+                "x": [1, 2, 3, 4],
+                "y": [10, 15, 13, 17],
+                name: 'DRX plot',
+                xaxis: 'x',
+                yaxis: 'y'
+                };
+
+            var trace2 = {
+                x: [4, 3, 2, 1],
+                y: [12, 9, 15, 8],
+                name: 'DRX plot 2',
+                xaxis: 'x2',
+                yaxis: 'y2'
+            };
+
+            var peak= {
+                type: 'line',
+                x0: 2,
+                y0: 0,
+                x1: 2,
+                y1: trace1.y[trace1.x.indexOf(2)],
+                line: {
+                    color: 'red',
+                    width: 1.5,
+                    dash: 'dot'
+                }
+            };
+
+            var peak2= {
+                type: 'line',
+                xref:'x2',
+                yref: 'y2',
+                x0: 2,
+                y0: 0,
+                x1: 2,
+                y1: trace2.y[trace2.x.indexOf(2)],
+                line: {
+                    color: 'green',
+                    width: 1.5,
+                    dash: 'dot'
+                }
+            };
+
+            var data = [trace1, trace2];
+
+            var layout = {
+                title: 'Titulo',
+                xaxis: {
+                    title: 'Eje X',
+                },
+                yaxis: {
+                    title: 'Eje Y',
+                    range: [5,20]
+                },
+                xaxis2: {
+                    rangeslider: {},
+                    anchor: 'y2'
+                },
+                yaxis2: {
+                    range: [5,20],
+                    anchor: 'x2'
+                },
+                showlegend: true,
+                legend:{
+                    x: 0.1,
+                    y: -0.2
+                },
+                shapes: [peak,peak2],
+                grid:{
+                    rows: 2,
+                    columns:1,
+                    roworder: 'top to bottom'
+                }
+            }   
+            Plotly.newPlot('myDiv', data, layout);
+
+        </script>
+    </div>
+    
+</body>
+</html>

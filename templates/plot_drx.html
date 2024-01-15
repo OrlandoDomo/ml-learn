@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/styles/theme.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
+    <title>Drx Plot</title>
+</head>
+<body>
+    <h1>Aqui va el Plot de tu DRX en Plotly</h1>
+    <div id="DRXplot" class="container">
+        <script>
+            var getData= $.getJSON('/drx/api');
+
+            getData.done(function(results) {
+                var drx_plot= results
+                
+                var data=[drx_plot]
+                var layout={
+                    title: "Plot DRX de YBCO",
+                    paper_bgcolor: "rgba(0,0,0,0)",
+                    xaxis: {
+                        title: 'Angulo de Difraccion',
+                        range: [20,80]
+                    },
+                    yaxis: {
+                        title: 'Intensidad',
+                        range: [10,200000]
+                    },
+                    showlegend: true,
+                    legend:{
+                        x: 1,
+                        y: 1
+                    }
+                }
+                //console.log(drx_plot)
+
+                Plotly.newPlot('DRXplot', data, layout);
+            });
+
+        </script>
+    </div>
+    <div id="NewPlot" class="container">
+        <a class="btn btn-primary" href="{{url_for('uploadFiles')}}" role="button">New plot</a>  
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>    
+</body>
+</html>

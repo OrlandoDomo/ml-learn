@@ -1,0 +1,9 @@
+<form action="{{ url_for('calculator')}}" method="post">
+  <label for="fname">First number:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="lname">Second number:</label>
+  <input type="text" id="lname" name="lname"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+<p> La suma de los dos numeros segun la calculadora es {{suma}}  </p>
